@@ -214,6 +214,6 @@ jobs:
            #cd "$(dirname "$SBOM_OUTPUT")"
            #cosign attest -y \
              #--predicate "$(basename "$SBOM_OUTPUT")" \
-             --type spdxjson \
-             --key env://COSIGN_PRIVATE_KEY \
-             "${IMAGE}@${DIGEST}"
+             #--type spdxjson \
+             #--key env://COSIGN_PRIVATE_KEY \
+             #"${IMAGE}@${DIGEST}"
