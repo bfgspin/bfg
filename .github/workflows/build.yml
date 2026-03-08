@@ -126,18 +126,7 @@ jobs:
             podman tag ${{ env.IMAGE_NAME }}:${{ env.DEFAULT_TAG }} ${{ env.IMAGE_NAME }}:$tag
           done
           
-      - name: Rechunk Image
-        run: |
-         sudo podman run --rm --privileged \
-           -v /var/lib/containers:/var/lib/containers \
-           --entrypoint /usr/libexec/bootc-base-imagectl \
-           "localhost/${IMAGE_NAME}:${DEFAULT_TAG}" \
-          rechunk --max-layers 67 \
-           "localhost/${IMAGE_NAME}:${DEFAULT_TAG}" \
-           "localhost/${IMAGE_NAME}:${DEFAULT_TAG}-rechunked"
-
-         sudo podman tag "localhost/${IMAGE_NAME}:${DEFAULT_TAG}-rechunked" "localhost/${IMAGE_NAME}:${DEFAULT_TAG}"
-         sudo podman rmi "localhost/${IMAGE_NAME}:${DEFAULT_TAG}-rechunked"
+     
            
       # SBOM (OPTIONAL): Software Bill of Materials generation using Syft
       # Creates a detailed inventory of all software components in the image for supply chain security.
