@@ -56,6 +56,9 @@ echo "::group:: System Configuration"
 # Enable/disable systemd services
 systemctl enable podman.socket
 systemctl enable sshd.service
+sudo firewall-cmd --permanent --add-port=3389/tcp
+sudo firewall-cmd --permanent --add-port=22/tcp
+sudo firewall-cmd --permanent --add-port=2409/tcp
 # Example: systemctl mask unwanted-service
 
 echo "::endgroup::"
