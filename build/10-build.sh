@@ -45,7 +45,7 @@ echo "::group:: Install Packages"
 
 # Install packages using dnf5
 # Example: dnf5 install -y tmux
-
+dnf5 install -y tmux mosh xcb-util xcb-util-image xcb-util-renderutil xcb-util-keysyms xcb-util-wm libglvnd-opengl mesa-libGLU
 # Example using COPR with isolated pattern:
 # copr_install_isolated "ublue-os/staging" package-name
 
